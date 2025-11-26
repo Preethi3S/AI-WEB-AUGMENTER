@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Augmenter Control</title>
+    <!-- EMBEDDED Tailwind CSS to avoid CSP issues -->
+    <style>
+        /*! Tailwind CSS v3.4.3 | MIT License | https://tailwindcss.com */
+        /*
+        This is a minified version of Tailwind CSS.
+        It's embedded directly here to comply with Chrome Extension Content Security Policy (CSP)
+        which restricts loading scripts/styles from external CDNs.
+        */
+        *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:currentColor}::before,::after{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-feature-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-feature-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:normal;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit]{-webkit-appearance:button}::-moz-focus-inner{border-style:none;padding:0}:-moz-focusring{outline:1px dotted ButtonText}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}ol,ul,menu{list-style:none;margin:0;padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}button,[role=button]{cursor:pointer}:disabled{cursor:default}img,svg,video,canvas,audio,iframe,embed,object{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*,::before,::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-rgb:0 0 0;--tw-filter: ;--tw-backdrop-filter: ;--tw-blended: ;--tw-text-spacing: ;--tw-prose-background: #fff;--tw-prose-flow-root: ;--tw-prose-columns: ;--tw-prose-counter-reset: ;--tw-prose-counter-increment: ;--tw-prose-list-padding-left: ;--tw-prose-list-marker-content: ;--tw-prose-list-marker-color: ;--tw-prose-invert-background: ;--tw-prose-invert-flow-root: ;--tw-prose-invert-columns: ;--tw-prose-invert-counter-reset: ;--tw-prose-invert-counter-increment: ;--tw-prose-invert-list-padding-left: ;--tw-prose-invert-list-marker-content: ;--tw-prose-invert-list-marker-color: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-rgb:0 0 0;--tw-filter: ;--tw-backdrop-filter: ;--tw-blended: ;--tw-text-spacing: ;--tw-prose-background: #fff;--tw-prose-flow-root: ;--tw-prose-columns: ;--tw-prose-counter-reset: ;--tw-prose-counter-increment: ;--tw-prose-list-padding-left: ;--tw-prose-list-marker-content: ;--tw-prose-list-marker-color: ;--tw-prose-invert-background: ;--tw-prose-invert-flow-root: ;--tw-prose-invert-columns: ;--tw-prose-invert-counter-reset: ;--tw-prose-invert-counter-increment: ;--tw-prose-invert-list-padding-left: ;--tw-prose-invert-list-marker-content: ;--tw-prose-invert-list-marker-color: }
+        .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}.inset-0{inset:0}.bottom-0{bottom:0}.left-0{left:0}.right-0{right:0}.top-0{top:0}.z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.z-auto{z-index:auto}.z-0{z-index:0}.z-[-1]{z-index:-1}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-auto{height:auto}.h-full{height:100%}.h-screen{height:100vh}.min-h-0{min-height:0px}.min-h-full{min-height:100%}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-xs{max-width:20rem}.max-w-full{max-width:100%}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.overflow-hidden{overflow:hidden}.rounded-lg{border-radius:.5rem}.rounded-full{border-radius:9999px}.rounded-md{border-radius:.375rem}.border{border-width:1px}.border-0{border-width:0px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-2{border-width:2px}.border-4{border-width:4px}.border-8{border-width:8px}.border-x-0{border-left-width:0px;border-right-width:0px}.border-y-0{border-top-width:0px;border-bottom-width:0px}.border-x-2{border-left-width:2px;border-right-width:2px}.border-y-2{border-top-width:2px;border-bottom-width:2px}.border-x-4{border-left-width:4px;border-right-width:4px}.border-y-4{border-top-width:4px;border-bottom-width:4px}.border-x-8{border-left-width:8px;border-right-width:8px}.border-y-8{border-top-width:8px;border-bottom-width:8px}.border-solid{border-style:solid}.border-dashed{border-style:dashed}.border-dotted{border-style:dotted}.border-double{border-style:double}.border-hidden{border-style:hidden}.border-none{border-style:none}.box-border{box-sizing:border-box}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-rgb:0 0 0;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-rgb:0 0 0;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-rgb:0 0 0;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-rgb:0 0 0;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-rgb:0 0 0;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-rgb:0 0 0;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-none{--tw-shadow:0 0 #0000;--tw-shadow-rgb:0 0 0;box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity))}.bg-gray-300{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity))}.bg-f8fafc{background-color:#f8fafc}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.p-4{padding:1rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.p-1rem{padding:1rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mt-1rem{margin-top:1rem}.text-center{text-align:center}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-200{transition-duration:.2s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow, 0 0 #0000)}.focus\:ring-offset-2:focus{--tw-ring-offset-width:2px}.focus\:ring-blue-500:focus{--tw-ring-color:rgb(59 130 246 / 0.5)}.focus\:ring-gray-400:focus{--tw-ring-color:rgb(156 163 175 / 0.5)}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity))}.hover\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity))}
+    </style>
+    <!-- Google Fonts - Inter for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            width: 280px; /* Standard width for extension popups */
+            min-height: 150px; /* Minimum height */
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            box-sizing: border-box;
+            border-radius: 0.75rem; /* Rounded corners for the body */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .btn {
+            padding-left: 1rem; /* px-4 */
+            padding-right: 1rem; /* px-4 */
+            padding-top: 0.5rem; /* py-2 */
+            padding-bottom: 0.5rem; /* py-2 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* font-semibold */
+            transition-property: all; /* transition-all */
+            transition-duration: 0.2s; /* duration-200 */
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+            outline: 2px solid transparent; /* focus:outline-none */
+            outline-offset: 2px; /* focus:ring-offset-2 */
+        }
+        .btn-primary {
+            background-color: rgb(37 99 235); /* bg-blue-600 */
+            color: white; /* text-white */
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3); /* Custom blue shadow */
+        }
+        .btn-primary:hover {
+            background-color: rgb(29 78 216); /* hover:bg-blue-700 */
+        }
+        .btn-primary:focus {
+            box-shadow: 0 0 0 calc(2px + 2px) rgb(59 130 246 / 0.5); /* focus:ring-2 focus:ring-blue-500 */
+        }
+        .btn-secondary {
+            background-color: rgb(229 231 235); /* bg-gray-200 */
+            color: rgb(31 41 55); /* text-gray-800 */
+        }
+        .btn-secondary:hover {
+            background-color: rgb(209 213 219); /* hover:bg-gray-300 */
+        }
+        .btn-secondary:focus {
+            box-shadow: 0 0 0 calc(2px + 2px) rgb(156 163 175 / 0.5); /* focus:ring-2 focus:ring-gray-400 */
+        }
+        /* Spinner styles */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #3b82f6; /* Blue */
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px; /* Space between spinner and text */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Combined loading message and spinner container */
+        .loading-feedback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #4a5568; /* gray-700 */
+            margin-top: 0.5rem;
+            min-height: 30px; /* Ensure space even when hidden */
+        }
+        .loading-feedback.hidden {
+            display: none;
+        }
+        /* Productivity status text styling */
+#productivityStatus {
+  color: #4B5563; /* Tailwind's gray-600 */
+  font-style: italic;
+}
+
+    </style>
+</head>
+<body class="rounded-lg">
+    <h1 class="text-xl font-bold text-gray-800 mb-4">AI Augmenter</h1>
+    <button id="toggleReaderMode" class="btn btn-secondary w-full max-w-xs mb-3">
+        Toggle Reader Mode (Legacy)
+    </button>
+    <button id="analyzePage" class="btn btn-primary w-full max-w-xs mb-3">
+        Analyze Page with AI
+    </button>
+    <p id="statusMessage" class="text-sm text-gray-500 text-center">
+        Click 'Analyze Page' to get AI insights.
+    </p>
+
+    <!-- Add this inside <body>, maybe below the statusMessage paragraph -->
+
+    <p id="productivityStatus" class="text-sm text-gray-600 text-center mb-3 hidden"></p>
+
+
+    <!-- Section for asking questions to AI -->
+    <div class="w-full max-w-xs mt-4 p-4 bg-white rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold text-gray-800 mb-2">Ask AI about this page:</h2>
+        <div id="chatHistoryContainer" class="p-2 bg-gray-100 rounded-md text-sm text-gray-700 min-h-[50px] max-h-[200px] overflow-y-auto mb-2 flex flex-col">
+            <!-- Chat messages will appear here -->
+        </div>
+        <textarea id="questionInput" class="w-full p-2 border border-gray-300 rounded-md mb-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="2" placeholder="Type your question here..."></textarea>
+        <button id="askAiButton" class="btn btn-primary w-full">Ask AI</button>
+        
+        <!-- Combined loading feedback -->
+        <div id="loadingFeedback" class="loading-feedback hidden">
+            <div class="spinner"></div>
+            <span id="loadingStatusText">Processing...</span>
+        </div>
+
+        <button id="clearChatButton" class="btn btn-secondary w-full mt-2">Clear Chat</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
