@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Web Augmenter</title>
+    <style>
+      body { margin: 0; width: 380px; min-height: 560px; background: #08101f; color: #e2e8f0; font-family: Inter, system-ui, sans-serif; }
+      .shell { padding: 16px; }
+      .card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10); border-radius: 20px; padding: 14px; margin-bottom: 12px; }
+      .btn { width: 100%; border: 0; border-radius: 14px; padding: 12px 14px; background: #7c8cf8; color: white; font-weight: 600; cursor: pointer; }
+      .btn.secondary { background: rgba(255,255,255,.08); }
+      .input, .textarea { width: 100%; background: rgba(0,0,0,.22); color: #e2e8f0; border: 1px solid rgba(255,255,255,.10); border-radius: 14px; padding: 12px; }
+      .textarea { min-height: 120px; resize: vertical; }
+      .label { font-size: 12px; color: #94a3b8; display: block; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .18em; }
+      .row { display: grid; gap: 10px; }
+      .top { display:flex; align-items:center; justify-content:space-between; margin-bottom: 14px; }
+      .brand { font-weight: 700; }
+      .muted { color:#94a3b8; font-size: 13px; }
+      .output { white-space: pre-wrap; font-size: 12px; line-height: 1.6; color: #cbd5e1; max-height: 160px; overflow:auto; }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="top">
+        <div>
+          <div class="brand">AI Web Augmenter</div>
+          <div class="muted">Webpage intelligence workspace</div>
+        </div>
+      </div>
+      <div class="card">
+        <button id="summarize" class="btn">Summarize current page</button>
+        <button id="notes" class="btn secondary" style="margin-top:10px">Generate notes</button>
+      </div>
+      <div class="card">
+        <label class="label">JWT token</label>
+        <input id="token" class="input" placeholder="Paste JWT from the dashboard login" />
+        <button id="saveToken" class="btn secondary" style="margin-top:10px">Save token</button>
+      </div>
+      <div class="card">
+        <label class="label">Ask about page</label>
+        <textarea id="question" class="textarea" placeholder="What technologies are used here?"></textarea>
+        <button id="ask" class="btn" style="margin-top:10px">Ask AI</button>
+      </div>
+      <div class="card">
+        <label class="label">Resume match</label>
+        <textarea id="resume" class="textarea" placeholder="Paste resume text here"></textarea>
+        <textarea id="job" class="textarea" style="margin-top:10px" placeholder="Paste job description here"></textarea>
+        <button id="match" class="btn" style="margin-top:10px">Match resume to job</button>
+      </div>
+      <div class="card">
+        <label class="label">Status</label>
+        <div id="status" class="output">Ready.</div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+  </html>
